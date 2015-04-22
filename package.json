@@ -1,0 +1,25 @@
+{
+  "name": "vavio-application",
+  "version": "0.1.0",
+  "description": "Vavio application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Team-Plofpigeon/vavio-application.git"
+  },
+  "keywords": [
+    "react-native",
+    "plofpigeon",
+    "vavio",
+    "javascript"
+  ],
+  "author": "Team Plofpigeon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-Plofpigeon/vavio-application/issues"
+  },
+  "homepage": "https://github.com/Team-Plofpigeon/vavio-application"
+}
