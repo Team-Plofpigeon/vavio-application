@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Team Plofpigeon. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "RCTBridge.h"
 
 @interface VAFileUploadUtil : NSObject <RCTBridgeModule>

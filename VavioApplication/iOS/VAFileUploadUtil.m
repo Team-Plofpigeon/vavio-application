@@ -23,4 +23,13 @@ RCT_EXPORT_METHOD(writeFile:(NSString *)fileName
   successCallback(@[@"Write method called"]);
 }
 
+RCT_EXPORT_METHOD(readfile:(NSString *)fileName
+                  errorCallback:(RCTResponseSenderBlock)failureCallback
+                  callback:(RCTResponseSenderBlock)successCallback) {
+  
+  NSLog(@"%@ %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+  
+  successCallback(@[@"Read method called"]);
+}
+
 @end

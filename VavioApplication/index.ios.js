@@ -12,10 +12,25 @@ var {
   View,
   NavigatorIOS
 } = React;
+var { VAFileUploadUtil } = require('NativeModules');
 
 var IntroView = require('./React/Components/IntroView');
 
 var VavioApplication = React.createClass({
+
+  componentDidMount: function() {
+    VAFileUploadUtil.writeFile(
+        'Test.txt',
+        'Stukje tekst',
+        function errorCallback(results) {
+            alert('Error: ' + results);
+        },
+        function successCallback(results) {
+            alert('Success: ' + results);
+        }
+    );
+  },
+
   render: () => (
         <NavigatorIOS
             style={styles.navigator}

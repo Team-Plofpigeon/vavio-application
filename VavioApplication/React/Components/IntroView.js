@@ -2,8 +2,10 @@ var React = require('react-native');
 var {
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight,
 } = React;
+var Camera = require('react-native-camera');
 
 var IntroView = React.createClass({
     render: function() {
@@ -12,18 +14,23 @@ var IntroView = React.createClass({
               <Text style={styles.welcome}>
                 Welcome to Vavio!
               </Text>
-              <Text style={styles.instructions}>
-                To get started, piemel en plas.
-              </Text>
-              <Text style={styles.instructions}>
-                Press Cmd+R to reload,{'\n'}
-                Cmd+Control+Z for dev menu
-              </Text>
-              <Text style={styles.xd}>
-                xD
-              </Text>
+              <TouchableHighlight onPress={this._switchCamera}>
+                <View>
+                  <Camera
+                    ref="cam"
+                    aspect="Stretch"
+                    type="Back"
+                    orientation="PortraitUpsideDown"
+                    style={{height: 200, width: 200}}
+                  />
+                </View>
+              </TouchableHighlight>
             </View>
         );
+    },
+
+    _switchCamera: function() {
+        this.refs.cam.switch();
     }
 });
 
