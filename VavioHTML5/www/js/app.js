@@ -93,12 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'ResultCtrl'
   })
 
-  .state('test', {
-      url: '/test',
-      templateUrl: 'templates/test.html',
-      controller: 'TestCtrl'
-  });
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/start');
 

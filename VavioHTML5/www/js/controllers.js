@@ -29,20 +29,10 @@ angular.module('starter.controllers', [])
 
     $scope.startVideo = function() {
         Camera.start().then(function(imageURI) {
-            console.log(imageURI);
             $location.path('/result');
         }, function(err) {
-            console.log(err);
             $scope.error = err;
         });
-    };
-})
-
-.controller('TestCtrl', function($scope, Camera) {
-    $scope.test = 'Werkt deze ook?';
-
-    $scope.startVideo = function() {
-        Camera.start();
     };
 })
 
