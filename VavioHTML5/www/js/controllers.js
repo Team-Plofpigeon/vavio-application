@@ -33,6 +33,7 @@ angular.module('starter.controllers', [])
             $location.path('/result');
         }, function(err) {
             console.log(err);
+            $scope.error = err;
         });
     };
 })

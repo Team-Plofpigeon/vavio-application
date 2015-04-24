@@ -21,3 +21,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.warning {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: $assertive;
+    color: $light;
+    font-weight: bold;
+    font-size: 20px;
+}

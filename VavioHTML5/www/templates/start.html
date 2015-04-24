@@ -6,8 +6,9 @@
           <a href="#" class="item">Film jezelf als je op je hoofd staat</a>
       </div>
 
-     <button class="button button-full button-positive" ng-click="startVideo()">
+      <div class="warning" ng-show="error">Error code: {{error.code}}</div>
+      <button class="button button-full button-positive" ng-click="startVideo()">
         Film de challenge
-    </button>
+      </button>
   </ion-content>
 </ion-view>
