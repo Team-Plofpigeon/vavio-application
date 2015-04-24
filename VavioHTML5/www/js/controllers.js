@@ -24,12 +24,13 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('StartCtrl', function($scope, Camera) {
+.controller('StartCtrl', function($scope, $location, Camera) {
     $scope.test = 'Werkt deze?';
 
     $scope.startVideo = function() {
         Camera.start().then(function(imageURI) {
             console.log(imageURI);
+            $location.path('/result');
         }, function(err) {
             console.log(err);
         });
@@ -42,4 +43,8 @@ angular.module('starter.controllers', [])
     $scope.startVideo = function() {
         Camera.start();
     };
+})
+
+.controller('ResultCtrl', function($scope, Camera) {
+    $scope.result = 'file://' + Camera.returnVideo()[0].fullPath;
 });

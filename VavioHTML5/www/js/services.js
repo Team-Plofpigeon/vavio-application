@@ -58,17 +58,24 @@ angular.module('starter.services', [])
         mediaType: 1
     };
 
+    var resultingVideo;
+
     return {
         start: function() {
             var q = $q.defer();
 
             navigator.device.capture.captureVideo(function(result) {
+
+                resultingVideo = result;
                 q.resolve(result);
             }, function(err) {
                 q.reject(err);
             }, {limit: 1});
 
             return q.promise;
+        },
+        returnVideo: function() {
+            return resultingVideo || null;
         }
     }
 }]);
