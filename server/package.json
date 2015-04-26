@@ -1,0 +1,11 @@
+{
+  "name": "vavio-server",
+  "version": "0.1.0",
+  "description": "Back-end server for the Vavio application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Team Plofpigeon",
+  "license": "MIT"
+}
