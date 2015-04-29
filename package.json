@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/Team-Plofpigeon/vavio-application/issues"
   },
-  "homepage": "https://github.com/Team-Plofpigeon/vavio-application"
+  "homepage": "https://github.com/Team-Plofpigeon/vavio-application",
+  "devDependencies": {
+    "express": "^4.12.3",
+    "multer": "^0.1.8"
+  }
 }

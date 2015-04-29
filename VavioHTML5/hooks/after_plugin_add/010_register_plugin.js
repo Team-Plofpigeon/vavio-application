@@ -33,7 +33,7 @@ process.env.CORDOVA_PLUGINS.split(',').forEach(function (plugin) {
       id = idRegEx.exec(configString)[1]
       pluginToAdd = {id: id, locator: plugin};
     } catch(ex) {
-      console.log('There was an error retrieving the plugin.xml filr from the 010_register_plugin.js hook', ex);
+      console.log('There was an error retrieving the plugin.xml file from the 010_register_plugin.js hook', ex);
     }
   } else {
     pluginToAdd = plugin;
