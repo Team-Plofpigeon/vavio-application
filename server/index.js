@@ -11,6 +11,8 @@ app.get('/', function (req, res) {
 
 app.post('/upload', function(req, res) {
 	// Hier moet ie wat doen met de upload
+	console.log('url wordt aangevraagd');
+	console.log(req.body);
 	var form = {
 		body: req.body,
 		files: req.files

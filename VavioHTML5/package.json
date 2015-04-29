@@ -18,7 +18,9 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "com.ionic.keyboard",
-    "cordova-plugin-media-capture"
+    "cordova-plugin-media-capture",
+    "org.apache.cordova.file",
+    "cordova-plugin-file-transfer"
   ],
   "cordovaPlatforms": [
     "ios"

@@ -32,3 +32,6 @@ upload/
 # Mac
 .DS_Store
 
+# Python/Deploy shit
+*.pyc
+release.tar.gz

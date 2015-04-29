@@ -65,8 +65,8 @@ angular.module('starter.services', [])
             var q = $q.defer();
 
             navigator.device.capture.captureVideo(function(result) {
-
                 resultingVideo = result;
+
                 q.resolve(result);
             }, function(err) {
                 q.reject(err);
@@ -76,6 +76,30 @@ angular.module('starter.services', [])
         },
         returnVideo: function() {
             return resultingVideo || null;
+        }
+    }
+}])
+
+.factory('Upload', ['$q', function($q) {
+    return {
+        start: function(file) {
+            var q = $q.defer();
+            var options = new FileUploadOptions();
+
+            options.fileKey = 'file';
+            options.fileName = file.substr(file.lastIndexOf('/') + 1);
+            options.mimeType = 'video/mp4';
+
+            var transfer = new FileTransfer();
+            console.log('Hai?');
+
+            transfer.upload(file, encodeURI('http://node.borisbesemer.com:3000/upload'), function(success) {
+                q.resolve(success);
+            }, function(err) {
+                q.reject(err);
+            });
+
+            return q.promise;
         }
     }
 }]);
