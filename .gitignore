@@ -27,6 +27,8 @@ DerivedData
 
 # JavaScript
 node_modules/
+upload/
 
 # Mac
 .DS_Store
+
