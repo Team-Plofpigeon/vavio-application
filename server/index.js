@@ -14,7 +14,8 @@ app.get('/', function (req, res) {
 // Accept custom user defined challenge
 app.post('/customchallenge', function (req, res) {
 	console.log('custom challenge wordt aangevraagd');
-	// Save custom challenge in variable
+	console.log(req.body);
+	// Push custom challenge to array
 	challenges.push(req.body);
 	res.send(200).end();
 });

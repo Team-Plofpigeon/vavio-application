@@ -130,6 +130,118 @@ angular.module('starter.services', [])
         },
         remove: function(id) {
             challenges.splice(challenges.indexOf(id), 1);
-        } 
+        }
+    };
+}])
+
+.factory('PickThree', ['$q', function($q) {
+
+    var what = [{
+        text: 'Hinkel op je linker been'
+    },
+    {
+        text: 'Doe een levend standbeeld na'
+    },
+    {
+        text: 'Druk armpje'
+    },
+    {
+        text: 'Wissel een kledingstuk'
+    },
+    {
+        text: 'Speel luchtgitaar'
+    },
+    {
+        text: 'Doe een dutje'
+    },
+    {
+        text: 'Geef een staande ovatie'
+    },
+    {
+        text: 'Zing een liedje'
+    },
+    {
+        text: 'Loop de polonaise'
+    },
+    {
+        text: 'Loop achterstevoren'
+    },
+    {
+        text: 'Doe een impersonatie'
+    },
+    {
+        text: 'Promoot je locatie'
+    },
+    {
+        text: 'Geef een weersvoorspelling'
+    },
+    {
+        text: 'Bedenk een rijmpje'
+    }];
+
+    var where = [{
+        text: 'op een machine'
+    },
+    {
+        text: 'op een terras'
+    },
+    {
+        text: 'in een park'
+    },
+    {
+        text: 'op een bankje'
+    },
+    {
+        text: 'op een zebra pad'
+    },
+    {
+        text: 'op een trap'
+    },
+    {
+        text: 'in een gazon'
+    },
+    {
+        text: 'op een stoel'
+    },
+    {
+        text: 'op een fontein'
+    },];
+
+    var who = [{
+        text: 'de kleinste persoon die met je mee is'
+    },
+    {
+        text: 'de stoerste persoon van jullie'
+    },
+    {
+        text: 'een man ouder dan 60'
+    },
+    {
+        text: 'een vrouw met een bril'
+    },
+    {
+        text: 'iemand met zwart haar'
+    },
+    {
+        text: 'iemand waarvan de naam met een P begint'
+    },
+    {
+        text: 'de grootste lambal'
+    },
+    {
+        text: 'een persoon groter dan 1,95'
+    },
+    {
+        text: 'een persoon die op een bekend iemand lijkt'
+    }];
+
+    return {
+        pickRandom: function() {
+          return {
+            what: what[Math.floor(Math.random()*what.length)],
+            where: where[Math.floor(Math.random()*where.length)],
+            who: who[Math.floor(Math.random()*who.length)]
+          }
+        }
     };
 }]);
