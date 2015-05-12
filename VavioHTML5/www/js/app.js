@@ -20,8 +20,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 
     });
-
-
 })
 
 .controller('MainController', function($scope, $location) {
@@ -30,7 +28,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
         $scope.$apply();
 	};
-  });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

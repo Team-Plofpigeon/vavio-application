@@ -44,7 +44,7 @@ angular.module('starter.services', [])
             options.mimeType = 'video/mp4';
 
             var transfer = new FileTransfer();
-            console.log('Hai?');
+
 
             transfer.upload(file, encodeURI('http://node.borisbesemer.com:3000/upload'), function(success) {
                 q.resolve(success);
