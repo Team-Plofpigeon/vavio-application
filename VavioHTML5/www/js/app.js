@@ -24,9 +24,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .controller('MainController', function($scope, $location) {
 	$scope.reportCustomURL = function(url) {
-        $location.path('/start-' + url);
 
-        $scope.$apply();
+            $location.path('/start-' + url);
+
+            $scope.$apply();
+
 	};
 })
 

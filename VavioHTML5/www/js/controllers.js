@@ -34,7 +34,11 @@ angular.module('starter.controllers', [])
 			$ionicLoading.hide();
             $scope.error = err;
         });
-	}
+	};
+
+	$scope.shareVideo = function() {
+		window.location = 'whatsapp://send?text=Ik%20heb%20net%20een%20challenge%20voltooid%20op%20Vavio,%20doe%20mee!%20vavio://pick-random';
+	};
 })
 
 .controller('IndexCtrl', function($scope, $location) {
