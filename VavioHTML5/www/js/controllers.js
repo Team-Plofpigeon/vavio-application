@@ -51,7 +51,6 @@ angular.module('starter.controllers', [])
 			console.log('yes');
         }, function(err) {
 			$ionicLoading.hide();
-			alert('no');
             $scope.error = err;
         });
 	}
@@ -61,14 +60,28 @@ angular.module('starter.controllers', [])
 	$scope.start = function(param) {
 		switch(param) {
 			case 0:
-				$location.path('/start-predefined');
+				$location.path('/start-pick-three');
 			break;
 			case 1:
-				$location.path('/start-predefined');
+				$location.path('/start-pick-random');
 			break;
 			case 2:
 				$location.path('/start-predefined');
 			break;
 		}
 	}
+})
+
+.controller('PickThreeCtrl', function($scope, $location, Camera) {
+	$scope.startVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
+})
+
+.controller('PickRandomCtrl', function($scope, $location, Camera, Random) {
+	$scope.result = Random.pickRandom().text;
 });

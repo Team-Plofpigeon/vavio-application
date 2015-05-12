@@ -86,6 +86,7 @@ angular.module('starter.services', [])
             var q = $q.defer();
             var options = new FileUploadOptions();
 
+
             options.fileKey = 'file';
             options.fileName = file.substr(file.lastIndexOf('/') + 1);
             options.mimeType = 'video/mp4';
@@ -101,5 +102,34 @@ angular.module('starter.services', [])
 
             return q.promise;
         }
-    }
+    };
+}])
+
+.factory('Random', ['$q', function($q) {
+
+    var challenges = [{
+        id: 0,
+        text: 'Sta op je hoofd'
+    },
+    {
+        id: 1,
+        text: 'Stop iets in je mond'
+    },
+    {
+        id: 2,
+        text: 'Doe een dansje'
+    },
+    {
+        id: 3,
+        text: 'Sla iemand in elkaar'
+    }];
+
+    return {
+        pickRandom: function() {
+            return challenges[Math.floor(Math.random()*challenges.length)];
+        },
+        remove: function(id) {
+            challenges.splice(challenges.indexOf(id), 1);
+        } 
+    };
 }]);

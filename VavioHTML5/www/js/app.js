@@ -56,8 +56,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('start-predefined', {
     url: '/start-predefined',
-      templateUrl: 'templates/start-predefined.html',
-      controller: 'StartCtrl'
+    templateUrl: 'templates/start-predefined.html',
+    controller: 'StartCtrl'
+  })
+
+  .state('start-pick-three', {
+      url: '/start-pick-three',
+      templateUrl: 'templates/start-pick-three.html',
+      controller: 'PickThreeCtrl'
+  })
+
+  .state('start-pick-random', {
+    url: '/start-pick-random',
+    templateUrl: 'templates/start-pick-random.html',
+    controller: 'PickRandomCtrl'
   })
 
   .state('result', {

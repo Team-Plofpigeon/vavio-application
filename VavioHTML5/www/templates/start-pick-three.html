@@ -1,0 +1,46 @@
+<ion-view view-title="Start">
+  <ion-content class="padding">
+      <h1>Pick three</h1>
+      <div class="list">
+          <label for="" class="item item-input item-select">
+              <div class="input-label">
+                  Plek
+              </div>
+              <select name="plek" id="">
+                  <option value="Buiten">Buiten</option>
+                  <option value="Binnen">Binnen</option>
+                  <option value="Fontein">Bij een fontein</option>
+              </select>
+          </label>
+      </div>
+      <div class="list">
+          <label for="" class="item item-input item-select">
+              <div class="input-label">
+                  Actie
+              </div>
+              <select name="Mensen" id="">
+                  <option value="Jan">Plassend</option>
+                  <option value="Henk">Op je hoofd</option>
+                  <option value="Piemelplas">Hoi</option>
+              </select>
+          </label>
+      </div>
+      <div class="list">
+              <label for="" class="item item-input item-select">
+                  <div class="input-label">
+                      Mensen
+                  </div>
+                  <select name="Mensen" id="">
+                      <option value="Jan">Jan</option>
+                      <option value="Henk">Henk</option>
+                      <option value="Piemelplas">Piemelplas</option>
+                  </select>
+              </label>
+      </div>
+
+      <div class="warning" ng-show="error">Error code: {{error.code}}</div>
+      <button class="button button-full button-positive" ng-click="startVideo()">
+        Film de challenge
+      </button>
+  </ion-content>
+</ion-view>
