@@ -208,16 +208,16 @@ angular.module('starter.services', [])
     },];
 
     var who = [{
-        text: 'de kleinste persoon die met je mee is'
+        text: 'de kleinste persoon'
     },
     {
-        text: 'de stoerste persoon van jullie'
+        text: 'de stoerste persoon'
     },
     {
-        text: 'een man ouder dan 60'
+        text: 'de oudste persoon'
     },
     {
-        text: 'een vrouw met een bril'
+        text: 'iemand met een bril'
     },
     {
         text: 'iemand met zwart haar'
@@ -229,10 +229,10 @@ angular.module('starter.services', [])
         text: 'de grootste lambal'
     },
     {
-        text: 'een persoon groter dan 1,95'
+        text: 'de grootste persoon'
     },
     {
-        text: 'een persoon die op een bekend iemand lijkt'
+        text: 'de knapste persoon'
     }];
 
     return {
