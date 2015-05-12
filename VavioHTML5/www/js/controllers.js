@@ -41,6 +41,10 @@ angular.module('starter.controllers', [])
 	};
 })
 
+.controller('SendChallengeCtrl', function($scope, $location, $ionicLoading, Challenge) {
+	
+});
+
 .controller('IndexCtrl', function($scope, $location) {
 	$scope.start = function(param) {
 		switch(param) {

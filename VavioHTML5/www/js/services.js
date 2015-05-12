@@ -196,4 +196,24 @@ angular.module('starter.services', [])
           }
         }
     };
+}])
+
+.factory('Challenge', ['$q', '$http', function($q, $http) {
+    var challengeUrl = {};
+
+    return {
+        send: function(challenge) {
+            var q = $q.defer();
+
+            $http.post('node.borisbesemer.com:3000/challenge', challenge)
+                .success(function(data, status, headers, config) {
+                    challengeUrl = data;
+                    q.resolve(challengeUrl);
+                })
+                .error(function(data, status, headers, config) {
+                    q.reject(data);
+            });
+            return q.promise;
+        }
+    }
 }]);

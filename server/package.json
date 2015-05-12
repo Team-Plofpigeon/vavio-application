@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "express": "^4.12.3",
+    "lodash": "^3.8.0",
     "multer": "^0.1.8"
   }
 }

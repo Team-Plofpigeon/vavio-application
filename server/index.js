@@ -1,9 +1,12 @@
 var express = require('express');
 var multer = require('multer');
+var _ = require('lodash');
 
 var app = express();
 
 var challenges = [];
+
+var challengeList = [];
 
 app.use(multer({dest: './upload/'}));
 
@@ -29,6 +32,23 @@ app.post('/upload', function(req, res) {
 		files: req.files
 	};
 	res.send(form);
+});
+
+app.post('/challenge', function(req, res) {
+	var result = {
+		videoName: req.body.videoName;
+		type: req.body.challengeType;
+		challengeText: req.body
+	}
+	challengeList.push(result);
+
+	var responseId = _.findIndex(challengeList, {videoName: req.body.videoName});
+	res.status(200).send(responseId);
+});
+
+app.get('/challenge/:id', function(req, res) {
+	var response = challengeList[req.params.id];
+	res.status(200).send(response);
 });
 
 var server = app.listen(3000, function () {
