@@ -4,6 +4,25 @@ angular.module('starter.controllers', [])
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
+.controller('MainController', function($scope, $location) {
+	$scope.reportCustomURL = function(url) {
+		alert(url);
+		switch(url) {
+	        case 'random':
+	            $location.path('/start-random');
+	        break;
+
+	        case 'pick-three':
+	            $location.path('/start-pick-three');
+	        break;
+
+	        case 'predefined':
+	            $location.path('/start-predefined');
+	        break;
+	    }
+	};
+})
+
 .controller('DashCtrl', function($scope) {
 })
 
