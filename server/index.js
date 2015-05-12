@@ -3,10 +3,20 @@ var multer = require('multer');
 
 var app = express();
 
+var challenges = [];
+
 app.use(multer({dest: './upload/'}));
 
 app.get('/', function (req, res) {
 	res.send('Hello Boris!');
+});
+
+// Accept custom user defined challenge
+app.post('/customchallenge', function (req, res) {
+	console.log('custom challenge wordt aangevraagd');
+	// Save custom challenge in variable
+	challenges.push(req.body);
+	res.send(200).end();
 });
 
 app.post('/upload', function(req, res) {
