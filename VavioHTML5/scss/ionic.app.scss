@@ -30,3 +30,44 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     font-weight: bold;
     font-size: 20px;
 }
+
+// Custom challenges
+textarea {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin-left: -1px;
+  border: 1px solid #ddd;
+  width: calc(100% + 2px);
+  resize: none;
+}
+
+#counter {
+  width: calc(100% + 2px);
+  text-align: right;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-top: 0px;
+  padding: 8px 16px;
+  margin-left: -1px;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+
+  &.black {
+    color: #000000;
+  }
+
+  &.yellow {
+    color: #FFCC00;
+  }
+
+  &.orange {
+    color: #FF9500;
+  }
+
+  &.red {
+    color: #FF3B30;
+  }
+}
