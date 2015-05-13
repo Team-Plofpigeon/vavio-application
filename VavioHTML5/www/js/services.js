@@ -196,4 +196,46 @@ angular.module('starter.services', [])
           }
         }
     };
+}])
+
+.factory('Challenge', ['$q', '$http', function($q, $http) {
+    var challengeUrl = {};
+
+    return {
+        sendChallenge: function(challengeTest) {
+            var q = $q.defer();
+
+            console.log(challengeTest);
+
+            $http({
+                url: 'http://vavio.borisbesemer.com/challenge',
+                method: 'POST',
+                data: JSON.stringify(challengeTest),
+                headers: {'Content-Type': 'application/json'}
+            }).success(function(data, status, headers, config) {
+                console.log(data);
+                challengeUrl = '/start-' + data.challenge + '/' + data.id;
+                q.resolve(challengeUrl);
+            }).error(function(data, status, headers, config) {
+                q.reject(data);
+            });
+
+            return q.promise;
+        },
+
+        getChallenge: function(challengeId) {
+            var q = $q.defer();
+
+            $http.get('node.borisbesemer.com:3000/challenge/' + challengeId)
+                .success(function(data, status, headers, config) {
+                    challengeUrl = '/start-' + data.challenge + '/' + data.id;
+                    q.resolve(challengeUrl);
+                })
+                .error(function(data, status, headers, config) {
+                    q.reject(data);
+            });
+
+            return q.promise;
+        }
+    };
 }]);
