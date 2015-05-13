@@ -3,7 +3,9 @@
       <h1>{{test}}</h1>
       <div class="list">
           <div class="item item-divider">Je challenge</div>
-          <a href="#" class="item">Film jezelf als je op je hoofd staat</a>
+          <div ng-controller="ChallengeField">
+            <challenge-field></challenge-field>
+          </div>
       </div>
 
       <div class="warning" ng-show="error">Error code: {{error.code}}</div>
