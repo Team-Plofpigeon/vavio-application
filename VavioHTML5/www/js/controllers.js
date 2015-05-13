@@ -92,7 +92,10 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('PickThreeCtrl', function($scope, $location, Camera) {
+.controller('PickThreeCtrl', function($scope, $location, Camera, PickThree) {
+
+	$scope.returnedItem = PickThree.pickRandom();
+	
 	$scope.startVideo = function() {
 		Camera.start().then(function(imageURI) {
 			$location.path('/result');
