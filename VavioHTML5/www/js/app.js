@@ -71,6 +71,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'StartCtrl'
   })
 
+  .state('start-predefinederino', {
+    url: '/start-predefined/:id',
+    templateUrl: 'templates/start-predefined.html',
+    controller: 'StartCtrl'
+  })
+
   .state('start-pick-three', {
       url: '/start-pick-three',
       templateUrl: 'templates/start-pick-three.html',
@@ -79,6 +85,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('start-pick-random', {
     url: '/start-pick-random',
+    templateUrl: 'templates/start-pick-random.html',
+    controller: 'PickRandomCtrl'
+  })
+
+  .state('start-pick-random.challenge', {
+    url: '/start-pick-random/:id',
     templateUrl: 'templates/start-pick-random.html',
     controller: 'PickRandomCtrl'
   })

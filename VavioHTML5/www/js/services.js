@@ -202,18 +202,40 @@ angular.module('starter.services', [])
     var challengeUrl = {};
 
     return {
-        send: function(challenge) {
+        sendChallenge: function(challengeTest) {
             var q = $q.defer();
 
-            $http.post('node.borisbesemer.com:3000/challenge', challenge)
+            console.log(challengeTest);
+
+            $http({
+                url: 'http://vavio.borisbesemer.com/challenge',
+                method: 'POST',
+                data: JSON.stringify(challengeTest),
+                headers: {'Content-Type': 'application/json'}
+            }).success(function(data, status, headers, config) {
+                console.log(data);
+                challengeUrl = '/start-' + data.challenge + '/' + data.id;
+                q.resolve(challengeUrl);
+            }).error(function(data, status, headers, config) {
+                q.reject(data);
+            });
+
+            return q.promise;
+        },
+
+        getChallenge: function(challengeId) {
+            var q = $q.defer();
+
+            $http.get('node.borisbesemer.com:3000/challenge/' + challengeId)
                 .success(function(data, status, headers, config) {
-                    challengeUrl = data;
+                    challengeUrl = '/start-' + data.challenge + '/' + data.id;
                     q.resolve(challengeUrl);
                 })
                 .error(function(data, status, headers, config) {
                     q.reject(data);
             });
+
             return q.promise;
         }
-    }
+    };
 }]);

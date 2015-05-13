@@ -1,8 +1,15 @@
 var express = require('express');
 var multer = require('multer');
 var _ = require('lodash');
+var bodyParser = require('body-parser');
 
 var app = express();
+
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+app.use(bodyParser.json());
 
 var challenges = [];
 
@@ -26,7 +33,6 @@ app.post('/customchallenge', function (req, res) {
 app.post('/upload', function(req, res) {
 	// Hier moet ie wat doen met de upload
 	console.log('url wordt aangevraagd');
-	console.log(req.body);
 	var form = {
 		body: req.body,
 		files: req.files
@@ -35,15 +41,21 @@ app.post('/upload', function(req, res) {
 });
 
 app.post('/challenge', function(req, res) {
+	console.log(req.body);
+
 	var result = {
-		videoName: req.body.videoName;
-		type: req.body.challengeType;
-		challengeText: req.body
+		videoName: req.body.videoName,
+		type: req.body.type,
+		challengeText: req.body.challengeText
 	}
+
 	challengeList.push(result);
 
 	var responseId = _.findIndex(challengeList, {videoName: req.body.videoName});
-	res.status(200).send(responseId);
+	res.status(200).send({id: responseId, challenge: req.body.type}).end();
+
+
+
 });
 
 app.get('/challenge/:id', function(req, res) {
