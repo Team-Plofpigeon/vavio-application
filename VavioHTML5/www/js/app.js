@@ -22,10 +22,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     });
 })
 
-.controller('MainController', function($scope, $location) {
+.controller('MainController', function($scope, $location, Challenge) {
 	$scope.reportCustomURL = function(url) {
 
-            $location.path('/start-' + url);
+        console.log(url);
+
+            if(url.indexOf('/accept-challenge/') > -1 ) {
+                console.log('accept challenge called');
+                Challenge.setChallengeId(url.substr(url.lastIndexOf('/') +1 ));
+                $location.path(url);
+            } else {
+                console.log('different url called');
+                $location.path('/start-' + url);
+            }
 
             $scope.$apply();
 
@@ -71,10 +80,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'StartCtrl'
   })
 
-  .state('start-predefinederino', {
-    url: '/start-predefined/:id',
-    templateUrl: 'templates/start-predefined.html',
-    controller: 'StartCtrl'
+  .state('accept-challenge', {
+    url: '/accept-challenge/:id',
+    templateUrl: 'templates/accept-challenge.html',
+    controller: 'AcceptCtrl'
   })
 
   .state('start-pick-three', {

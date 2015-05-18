@@ -1,0 +1,18 @@
+<ion-view view-title="Accepteer Challenge">
+  <ion-content class="padding">
+      <h1>Accepteer</h1>
+      <div class="list">
+          <div class="item item-divider">Challenge door iemand anders gemaakt</div>
+          <a href="" class="item">Hier komt een video van de challenger, videonaam is: {{challenger.videoName}}</a>
+      </div>
+      <div class="list">
+          <div class="item item-divider">Je challenge</div>
+          <a href="#" class="item">{{ challenger.challengeText }}</a>
+      </div>
+
+      <div class="warning" ng-show="error">Error code: {{error.code}}</div>
+      <button class="button button-full button-positive" ng-click="startVideo()">
+        Film de challenge
+      </button>
+  </ion-content>
+</ion-view>

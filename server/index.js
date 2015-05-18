@@ -45,7 +45,6 @@ app.post('/challenge', function(req, res) {
 
 	var result = {
 		videoName: req.body.videoName,
-		type: req.body.type,
 		challengeText: req.body.challengeText
 	}
 
@@ -59,8 +58,12 @@ app.post('/challenge', function(req, res) {
 });
 
 app.get('/challenge/:id', function(req, res) {
+	console.log('get challenge called!');
 	var response = challengeList[req.params.id];
-	res.status(200).send(response);
+
+	console.log(response);
+	
+	res.status(200).send(response).end();
 });
 
 var server = app.listen(3000, function () {

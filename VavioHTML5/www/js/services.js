@@ -7,7 +7,8 @@ angular.module('starter.services', [])
         destinationType: 1,
         sourceType: 1,
         allowEdit: true,
-        mediaType: 1
+        mediaType: 1,
+        saveToPhotoAlbum: true
     };
 
     var resultingVideo;
@@ -46,7 +47,7 @@ angular.module('starter.services', [])
             var transfer = new FileTransfer();
 
 
-            transfer.upload(file, encodeURI('http://node.borisbesemer.com:3000/upload'), function(success) {
+            transfer.upload(file, encodeURI('http://vavio.borisbesemer.com/upload'), function(success) {
                 q.resolve(success);
             }, function(err) {
                 q.reject(err);
@@ -201,6 +202,9 @@ angular.module('starter.services', [])
 .factory('Challenge', ['$q', '$http', function($q, $http) {
     var challengeUrl = {};
 
+    var challengeText = '';
+    var challengeId;
+
     return {
         sendChallenge: function(challengeTest) {
             var q = $q.defer();
@@ -214,7 +218,7 @@ angular.module('starter.services', [])
                 headers: {'Content-Type': 'application/json'}
             }).success(function(data, status, headers, config) {
                 console.log(data);
-                challengeUrl = '/start-' + data.challenge + '/' + data.id;
+                challengeUrl = '/accept-challenge/' + data.id;
                 q.resolve(challengeUrl);
             }).error(function(data, status, headers, config) {
                 q.reject(data);
@@ -223,19 +227,31 @@ angular.module('starter.services', [])
             return q.promise;
         },
 
-        getChallenge: function(challengeId) {
+        getChallenge: function() {
             var q = $q.defer();
 
-            $http.get('node.borisbesemer.com:3000/challenge/' + challengeId)
+            $http.get('http://vavio.borisbesemer.com/challenge/' + challengeId)
                 .success(function(data, status, headers, config) {
-                    challengeUrl = '/start-' + data.challenge + '/' + data.id;
-                    q.resolve(challengeUrl);
+                    console.log('challenge get success');
+                    q.resolve(data);
                 })
                 .error(function(data, status, headers, config) {
                     q.reject(data);
             });
 
             return q.promise;
+        },
+
+        setChallengeText: function(text) {
+            challengeText = text;
+        },
+
+        getChallengeText: function() {
+            return challengeText;
+        },
+
+        setChallengeId: function(id) {
+            challengeId = id;
         }
     };
 }]);
