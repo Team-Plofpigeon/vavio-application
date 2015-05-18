@@ -28,7 +28,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, $stateParams) {
-  var video = Camera.returnVideo()[0].fullPath;
+    var video = Camera.returnVideo()[0].fullPath;
+	var videoName = video.substr(video.lastIndexOf('/') +1);
 	$scope.result = 'file://' + video;
 
 	$scope.uploadVideo = function() {
@@ -47,14 +48,8 @@ angular.module('starter.controllers', [])
 
 	$scope.shareVideo = function() {
 		var challenged = {
-			videoName: '1234',
-			type: 'predefined',
-			challengeText: 'Ga op je hoofd staan met Borito'
-		};
-
-		var test2 = {
-			hai: 'hai',
-			doei: 'doei'
+			videoName: videoName,
+			challengeText: Challenge.getChallengeText()
 		};
 
 		$ionicLoading.show({
@@ -83,9 +78,29 @@ angular.module('starter.controllers', [])
 				$location.path('/start-predefined');
 			break;
 		}
+	}
+})
+
+
+.controller('PickRandomCtrl', function($scope, $location, Camera, Random, Challenge) {
+	$scope.result = Random.pickRandom().text;
+
+	Challenge.setChallengeText($scope.result);
+
+	$scope.startVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		});
 	};
 })
 
-.controller('PickRandomCtrl', function($scope, $location, Camera, Random) {
-	$scope.result = Random.pickRandom().text;
+.controller('AcceptCtrl', function($scope, $location, Challenge) {
+
+	Challenge.getChallenge().then(function(data) {
+		console.log(data);
+		$scope.challenger = data;
+	});
+
 });
