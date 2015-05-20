@@ -28,12 +28,10 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, $stateParams) {
-    var video = Camera.returnVideo()[0].fullPath;
+  var video = Camera.returnVideo()[0].fullPath;
 	$scope.result = 'file://' + video;
 
-
 	$scope.uploadVideo = function() {
-
 		$ionicLoading.show({
 			template: 'Uploading...'
 		});
@@ -48,7 +46,6 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.shareVideo = function() {
-
 		var challenged = {
 			videoName: '1234',
 			type: 'predefined',
@@ -89,19 +86,6 @@ angular.module('starter.controllers', [])
 				$location.path('/start-predefined');
 			break;
 		}
-	}
-})
-
-.controller('PickThreeCtrl', function($scope, $location, Camera, PickThree) {
-
-	$scope.returnedItem = PickThree.pickRandom();
-	
-	$scope.startVideo = function() {
-		Camera.start().then(function(imageURI) {
-			$location.path('/result');
-		}, function(err) {
-			$scope.error = err;
-		});
 	};
 })
 
