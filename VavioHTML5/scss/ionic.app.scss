@@ -21,6 +21,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+* {
+    font-family: 'Avenir Next' !important;
+}
+
 .warning {
     height: 40px;
     line-height: 40px;

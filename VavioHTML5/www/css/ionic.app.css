@@ -7619,6 +7619,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+* {
+  font-family: 'Avenir Next' !important; }
+
 .warning {
   height: 40px;
   line-height: 40px;
