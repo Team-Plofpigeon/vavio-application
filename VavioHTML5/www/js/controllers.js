@@ -77,12 +77,9 @@ angular.module('starter.controllers', [])
 	$scope.start = function(param) {
 		switch(param) {
 			case 0:
-				$location.path('/start-pick-three');
-			break;
-			case 1:
 				$location.path('/start-pick-random');
 			break;
-			case 2:
+			case 1:
 				$location.path('/start-predefined');
 			break;
 		}
