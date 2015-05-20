@@ -1,6 +1,8 @@
 var express = require('express');
 var multer = require('multer');
 var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -18,7 +20,7 @@ var challengeList = [];
 app.use(multer({dest: './upload/'}));
 
 app.get('/', function (req, res) {
-	res.send('Hello Boris!');
+	res.send('Hello Boris! v2');
 });
 
 // Accept custom user defined challenge
@@ -57,12 +59,20 @@ app.post('/challenge', function(req, res) {
 
 });
 
+app.get('/video-list', function(req, res) {
+	fs.readdir(path.resolve(__dirname + '/../upload/'), function(err, files) {
+		res.send(files).end();
+	});
+});
+
+app.use('/video', express.static(path.join(__dirname, '/../upload')));
+
 app.get('/challenge/:id', function(req, res) {
 	console.log('get challenge called!');
 	var response = challengeList[req.params.id];
 
 	console.log(response);
-	
+
 	res.status(200).send(response).end();
 });
 
