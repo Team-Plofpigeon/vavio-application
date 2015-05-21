@@ -41,17 +41,18 @@ angular.module('starter.services', [])
 
 
             options.fileKey = 'file';
-            options.fileName = file.substr(file.lastIndexOf('/') + 1);
+            options.fileName = file.video.substr(file.video.lastIndexOf('/') + 1);
             options.mimeType = 'video/mp4';
+            options.params = {guid: file.guid};
 
             var transfer = new FileTransfer();
 
 
-            transfer.upload(file, encodeURI('http://vavio.borisbesemer.com/upload'), function(success) {
+            transfer.upload(file.video, encodeURI('http://vavio.borisbesemer.com/upload'), function(success) {
                 q.resolve(success);
             }, function(err) {
                 q.reject(err);
-            });
+            }, options);
 
             return q.promise;
         }
@@ -146,4 +147,25 @@ angular.module('starter.services', [])
             challengeId = id;
         }
     };
-}]);
+}])
+
+.factory('Guid', function() {
+    var guid = null;
+    return {
+        generate: function() {
+            var d = new Date().getTime();
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = (d + Math.random()*16)%16 | 0;
+                d = Math.floor(d/16);
+                return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            console.log('uuid is: ' + uuid);
+            guid = uuid;
+            return uuid;
+        },
+
+        get: function() {
+            return guid;
+        }
+    }
+});
