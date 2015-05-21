@@ -1,4 +1,4 @@
-from fabric.api import cd, env, local, lcd, run, sudo
+from fabric.api import cd, env, local, lcd, run, sudo, settings
 from fabric.contrib.files import exists
 from fabric.operations import put
 
@@ -15,7 +15,8 @@ def deploy():
     local('tar zcvf release.tar.gz index.js package.json')
 
     # Stop existing application
-    # run('forever stop vavio')
+    with settings(warn_only=True):
+        run('forever stop vavio')
 
     with cd('/var/node/vavio'):
         run('mkdir -p build')
