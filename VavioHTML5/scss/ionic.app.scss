@@ -51,6 +51,8 @@ textarea {
   padding: 10px 20px;
   margin-left: -1px;
   border: 1px solid #ddd;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
   width: calc(100% + 2px);
   resize: none;
 }
