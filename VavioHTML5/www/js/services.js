@@ -62,19 +62,23 @@ angular.module('starter.services', [])
 
     var challenges = [{
         id: 0,
-        text: 'Sta op je hoofd'
+        text: 'Hinkel op 1 been een trap op'
     },
     {
         id: 1,
-        text: 'Stop iets in je mond'
+        text: 'Ga armpje drukken met iemand'
     },
     {
         id: 2,
-        text: 'Doe een dansje'
+        text: 'Doe de weervoorspelling'
     },
     {
         id: 3,
-        text: 'Sla iemand in elkaar'
+        text: 'Speel op je air guitar'
+    },
+    {
+        id: 4,
+        text: 'Loop met je groep achteruit'
     }];
 
     return {

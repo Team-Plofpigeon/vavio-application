@@ -20,7 +20,8 @@
     "com.ionic.keyboard",
     "cordova-plugin-media-capture",
     "org.apache.cordova.file",
-    "cordova-plugin-file-transfer"
+    "cordova-plugin-file-transfer",
+    "cordova-plugin-file"
   ],
   "cordovaPlatforms": [
     "ios"
