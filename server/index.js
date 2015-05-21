@@ -17,7 +17,12 @@ var challenges = [];
 
 var challengeList = [];
 
-app.use(multer({dest: './upload/'}));
+var videoMiddleware = multer({
+	dest: './upload/',
+	rename: function(fieldname, filename, req, res) {
+		return req.body.guid;
+	}
+});
 
 app.get('/', function (req, res) {
 	res.send('Hello Boris! v2');
@@ -32,9 +37,10 @@ app.post('/customchallenge', function (req, res) {
 	res.send(200).end();
 });
 
-app.post('/upload', function(req, res) {
+app.post('/upload', videoMiddleware, function(req, res) {
 	// Hier moet ie wat doen met de upload
 	console.log('url wordt aangevraagd');
+	console.log(req.body);
 	var form = {
 		body: req.body,
 		files: req.files
@@ -47,12 +53,13 @@ app.post('/challenge', function(req, res) {
 
 	var result = {
 		videoName: req.body.videoName,
-		challengeText: req.body.challengeText
-	}
+		challengeText: req.body.challengeText,
+		guid: req.body.guid
+	};
 
 	challengeList.push(result);
 
-	var responseId = _.findIndex(challengeList, {videoName: req.body.videoName});
+	var responseId = _.findIndex(challengeList, {guid: req.body.guid});
 	res.status(200).send({id: responseId, challenge: req.body.type}).end();
 
 

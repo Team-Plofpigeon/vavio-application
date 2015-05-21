@@ -27,29 +27,35 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, $stateParams) {
+.controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
     var video = Camera.returnVideo()[0].fullPath;
 	var videoName = video.substr(video.lastIndexOf('/') +1);
 	$scope.result = 'file://' + video;
+
+	var guid;
 
 	$scope.uploadVideo = function() {
 		$ionicLoading.show({
 			template: 'Uploading...'
 		});
 
-        Upload.start(video).then(function(result) {
+		guid = Guid.generate();
+
+        Upload.start({video: video, guid: guid}).then(function(result) {
 			$ionicLoading.hide();
 			console.log('yes');
         }, function(err) {
 			$ionicLoading.hide();
             $scope.error = err;
+
         });
 	};
 
 	$scope.shareVideo = function() {
 		var challenged = {
 			videoName: videoName,
-			challengeText: Challenge.getChallengeText()
+			challengeText: Challenge.getChallengeText(),
+			guid: guid
 		};
 
 		$ionicLoading.show({
@@ -101,6 +107,8 @@ angular.module('starter.controllers', [])
 	Challenge.getChallenge().then(function(data) {
 		console.log(data);
 		$scope.challenger = data;
+		$scope.video = 'http://vavio.borisbesemer.com/video/' + data.guid + '.MOV';
+		angular.element(document.getElementById('challenge-video')).attr('src', $scope.video);
 	});
 
 });
