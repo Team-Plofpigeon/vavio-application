@@ -28,11 +28,24 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
-    var video = Camera.returnVideo()[0].fullPath;
+	var video = Camera.returnVideo()[0].fullPath;
 	var videoName = video.substr(video.lastIndexOf('/') +1);
 	$scope.result = 'file://' + video;
 
 	var guid;
+	$scope.restartVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		}).then(function() {
+			console.log(video);
+			video = Camera.returnVideo()[0].fullPath;
+			console.log(video);
+			videoName = video.substr(video.lastIndexOf('/') +1);
+			$scope.result = 'file://' + video;
+		});
+	};
 
 	$scope.uploadVideo = function() {
 		$ionicLoading.show({
@@ -41,14 +54,14 @@ angular.module('starter.controllers', [])
 
 		guid = Guid.generate();
 
-        Upload.start({video: video, guid: guid}).then(function(result) {
+		Upload.start({video: video, guid: guid}).then(function(result) {
 			$ionicLoading.hide();
 			console.log('yes');
-        }, function(err) {
+		}, function(err) {
 			$ionicLoading.hide();
-            $scope.error = err;
+			$scope.error = err;
 
-        });
+		});
 	};
 
 	$scope.shareVideo = function() {
@@ -78,10 +91,10 @@ angular.module('starter.controllers', [])
 	$scope.start = function(param) {
 		switch(param) {
 			case 0:
-				$location.path('/start-pick-random');
+			$location.path('/start-pick-random');
 			break;
 			case 1:
-				$location.path('/start-predefined');
+			$location.path('/start-predefined');
 			break;
 		}
 	}
