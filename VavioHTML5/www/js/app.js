@@ -74,6 +74,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'IndexCtrl'
   })
 
+  .state('do-challenge', {
+    url: '/do-challenge',
+    templateUrl: 'templates/do-challenge.html',
+    controller: 'DoChallengeCtrl'
+  })
+
   .state('start-predefined', {
     url: '/start-predefined',
     templateUrl: 'templates/start-predefined.html',
