@@ -32,13 +32,15 @@ angular.module('starter.controllers', [])
 	var videoName = video.substr(video.lastIndexOf('/') +1);
 	$scope.result = 'file://' + video;
 
+
 	var guid;
+
 	$scope.restartVideo = function() {
 		Camera.start().then(function(imageURI) {
 			$location.path('/result');
 		}, function(err) {
 			$scope.error = err;
-		}).then(function(video) {
+		}).then(function(levideo) {
 			console.log(video);
 			video = Camera.returnVideo()[0].fullPath;
 			console.log(video);
