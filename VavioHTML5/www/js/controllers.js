@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
 			$location.path('/result');
 		}, function(err) {
 			$scope.error = err;
-		}).then(function() {
+		}).then(function(video) {
 			console.log(video);
 			video = Camera.returnVideo()[0].fullPath;
 			console.log(video);
