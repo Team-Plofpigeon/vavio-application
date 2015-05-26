@@ -10,7 +10,7 @@
           <a href="#" class="item">{{ challenger.challengeText }}</a>
       </div>
 
-      <div class="warning" ng-show="error">Error code: {{error.code}}</div>
+      <div class="warning" ng-cloak ng-show="error">Error code: {{error.code}}</div>
       <button class="button button-full button-positive" ng-click="startVideo()">
         Film de challenge
       </button>
