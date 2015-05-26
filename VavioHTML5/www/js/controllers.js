@@ -32,6 +32,25 @@ angular.module('starter.controllers', [])
 	var videoName = video.substr(video.lastIndexOf('/') +1);
 	$scope.result = 'file://' + video;
 
+	$scope.restartVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		}).then(function(){
+			console.log(video);
+			video = Camera.returnVideo()[0].fullPath;
+			console.log(video);
+			videoName = video.substr(video.lastIndexOf('/') +1);
+			$scope.result = 'file://' + video;
+			setTimeout(function () {
+	        	$scope.$apply(function () {
+	            	console.log('Scope apply called.');
+	        	});
+			}, 100);
+		});
+	};
+
 	$scope.uploadVideo = function() {
 		$ionicLoading.show({
 			template: 'Uploading...'
