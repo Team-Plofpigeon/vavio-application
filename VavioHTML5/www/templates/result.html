@@ -7,7 +7,7 @@
               <source src="{{result}}" type="video/mp4">
           </video></div>
       </div>
-    <div class="warning" ng-show="error">Error: {{error}}</div>
+    <div class="warning" ng-cloak ng-show="error">Error: {{error}}</div>
     <button class="button button-full button-assertive" ng-click="restartVideo()">
         Neem video opnieuw op
     </button>

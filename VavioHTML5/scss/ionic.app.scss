@@ -24,6 +24,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 * {
     font-family: 'Avenir Next' !important;
 }
+// ng-cloak hotfix
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.ng-hide-add,
+.ng-hide-remove {
+  display: none !important;
+}
 
 .warning {
     height: 40px;
