@@ -27,28 +27,41 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
-    var video = Camera.returnVideo()[0].fullPath;
+.controller('ResultCtrl', function($scope, $location, $document, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
+	var video = Camera.returnVideo()[0].fullPath;
 	var videoName = video.substr(video.lastIndexOf('/') +1);
-	$scope.result = 'file://' + video;
+	$scope.result = 'file://' + video
+	var videoElement = $document[0].getElementById('video');
 
 	var guid;
 
+	$scope.$watch('result', function() {
+		videoElement.src = $scope.result;
+	});
+
+	$scope.restartVideo = function() {
+		Camera.start().then(function(imageURI) {
+			video = Camera.returnVideo()[0].fullPath;
+			videoName = video.substr(video.lastIndexOf('/') +1);
+			$scope.result = 'file://' + video;
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
+
 	$scope.uploadVideo = function() {
 		$ionicLoading.show({
-			template: 'Uploading...'
+			template: 'Uploading video...'
 		});
 
 		guid = Guid.generate();
 
-        Upload.start({video: video, guid: guid}).then(function(result) {
+		Upload.start({video: video, guid: guid}).then(function(result) {
 			$ionicLoading.hide();
-			console.log('yes');
-        }, function(err) {
+		}, function(err) {
 			$ionicLoading.hide();
-            $scope.error = err;
-
-        });
+			$scope.error = err;
+		});
 	};
 
 	$scope.shareVideo = function() {
@@ -78,10 +91,10 @@ angular.module('starter.controllers', [])
 	$scope.start = function(param) {
 		switch(param) {
 			case 0:
-				$location.path('/start-pick-random');
+			$location.path('/start-pick-random');
 			break;
 			case 1:
-				$location.path('/start-predefined');
+			$location.path('/start-predefined');
 			break;
 		}
 	}
@@ -93,6 +106,13 @@ angular.module('starter.controllers', [])
 
 	Challenge.setChallengeText($scope.result);
 
+	$scope.startVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
 
 })
 
