@@ -7619,8 +7619,81 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+/* COLORS
+   ============================= */
+/* TYPOGRAPHY
+   ============================= */
 * {
-  font-family: 'Avenir Next' !important; }
+  font-family: 'Avenir' !important; }
+
+h2.challenge-title {
+  font-size: 12pt;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  margin-bottom: 10px; }
+
+p.challenge-current {
+  font-size: 14pt;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  color: #ffffff; }
+
+p.button-caption {
+  font-size: 14pt;
+  letter-spacing: 0.42px;
+  font-weight: 500;
+  color: #19b47d; }
+
+/* BUTTONS
+   ============================= */
+.buttons-wrapper {
+  position: absolute;
+  height: 152px;
+  width: calc(100% + 20px);
+  bottom: -10px;
+  background-image: url('../img/bg_buttons.svg');
+  background-size: cover;
+  margin: -10px; }
+  .buttons-wrapper .buttons-content {
+    position: relative;
+    top: 30px;
+    padding: 0px 55px; }
+
+.button-item {
+  display: inline-block;
+  width: 110px;
+  text-align: center;
+  float: left; }
+  .button-item:last-of-type {
+    float: right; }
+  .button-item .button {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    background: linear-gradient(to bottom, #0fcebf 0%, #32f0aa 100%);
+    background: -webkit-linear-gradient(to bottom, #0fcebf 0%, #32f0aa 100%);
+    margin-bottom: 10px; }
+    .button-item .button .icon {
+      vertical-align: middle; }
+
+/* GLOBAL SETTINGS
+   ============================= */
+[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+  background-color: #fa418c; }
+
+.bar.bar-stable .title {
+  background-image: url('../img/vavio_logo.svg');
+  background-size: 90px;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.bar-stable .button.button-clear {
+  color: #ffffff; }
+
+.scroll {
+  min-height: 100%; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
@@ -7637,6 +7710,74 @@ a.button {
   font-weight: bold;
   font-size: 20px; }
 
+/* CHALLENGE SECTIONS
+   ============================= */
+.roulette-wrapper {
+  position: relative;
+  background-image: url('../img/bg_opdracht.jpg');
+  background-size: cover;
+  height: 475px;
+  margin: -10px; }
+  .roulette-wrapper .roulette-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 0px 30px;
+    text-align: center; }
+
+#re-roll .icon {
+  height: 34px;
+  width: 34px;
+  margin-top: -3px; }
+
+#do-challenge .icon {
+  height: 32px;
+  width: 32px; }
+
+/* VIDEO
+   ============================= */
+.video-wrapper {
+  position: relative;
+  background-image: url('../img/bg_novideo.png');
+  background-size: cover;
+  height: 375px;
+  margin: -10px; }
+  .video-wrapper .video-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 0px 100px;
+    text-align: center; }
+  .video-wrapper p {
+    font-size: 14pt;
+    color: #b4b4b4; }
+
+.challenge-wrapper {
+  position: absolute;
+  height: 240px;
+  width: calc(100% + 20px);
+  bottom: -9px;
+  background-image: url('../img/bg_opdracht.svg');
+  background-size: cover;
+  margin: -10px; }
+  .challenge-wrapper .challenge-content {
+    position: relative;
+    top: 20px;
+    padding: 0px 30px;
+    text-align: center; }
+
+#record-video .icon {
+  height: 31px;
+  width: 31px; }
+
+#challenge-friend .icon {
+  height: 33px;
+  width: 33px; }
+
+/* CUSTOM CHALLENGES
+   ============================= */
 textarea {
   display: block;
   box-sizing: border-box;

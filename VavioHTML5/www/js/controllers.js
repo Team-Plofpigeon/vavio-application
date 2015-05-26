@@ -97,8 +97,15 @@ angular.module('starter.controllers', [])
 			case 1:
 			$location.path('/start-predefined');
 			break;
+			case 2:
+				$location.path('/do-challenge');
+			break;
 		}
-	}
+	};
+})
+
+.controller('DoChallengeCtrl', function($scope) {
+	console.log('Do Challenge');
 })
 
 
