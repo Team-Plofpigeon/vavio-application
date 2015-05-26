@@ -58,6 +58,7 @@ angular.module('starter.controllers', [])
 
 		Upload.start({video: video, guid: guid}).then(function(result) {
 			$ionicLoading.hide();
+			$scope.shareVideo();
 		}, function(err) {
 			$ionicLoading.hide();
 			$scope.error = err;
