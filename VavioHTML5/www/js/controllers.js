@@ -27,42 +27,40 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('ResultCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
+.controller('ResultCtrl', function($scope, $location, $document, $ionicLoading, Camera, Upload, Challenge, Guid, $stateParams) {
 	var video = Camera.returnVideo()[0].fullPath;
 	var videoName = video.substr(video.lastIndexOf('/') +1);
-	$scope.result = 'file://' + video;
-
+	$scope.result = 'file://' + video
+	var videoElement = $document[0].getElementById('video');
 
 	var guid;
 
+	$scope.$watch('result', function() {
+		videoElement.src = $scope.result;
+	});
+
 	$scope.restartVideo = function() {
 		Camera.start().then(function(imageURI) {
-			$location.path('/result');
-		}, function(err) {
-			$scope.error = err;
-		}).then(function(levideo) {
-			console.log(video);
 			video = Camera.returnVideo()[0].fullPath;
-			console.log(video);
 			videoName = video.substr(video.lastIndexOf('/') +1);
 			$scope.result = 'file://' + video;
+		}, function(err) {
+			$scope.error = err;
 		});
 	};
 
 	$scope.uploadVideo = function() {
 		$ionicLoading.show({
-			template: 'Uploading...'
+			template: 'Uploading video...'
 		});
 
 		guid = Guid.generate();
 
 		Upload.start({video: video, guid: guid}).then(function(result) {
 			$ionicLoading.hide();
-			console.log('yes');
 		}, function(err) {
 			$ionicLoading.hide();
 			$scope.error = err;
-
 		});
 	};
 
@@ -108,6 +106,13 @@ angular.module('starter.controllers', [])
 
 	Challenge.setChallengeText($scope.result);
 
+	$scope.startVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/result');
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
 
 })
 
