@@ -1,34 +1,31 @@
 <ion-view>
   <ion-content>
-    <!-- Video -->
     <section class="video-wrapper">
-      <div class="video-content">
-        <!-- Display video -->
-      </div>
-    </section>
-    <!-- Challenge-->
-    <section class="challenge-wrapper">
-      <div class="challenge-content">
-        <h2 class="challenge-title">de opdracht:</h2>
-        <p class="challenge-current">Armpjedrukken met de sterkste man in de buurt.</p>
-      </div>
-    </section>
-    <!-- Decision -->
-    <section class="buttons-wrapper">
-      <div class="buttons-content">
-        <div class="button-item">
-          <button id="record-video" class="button">
-            <img class="icon" src="img/buttons/button_share.svg" alt="Share video">
-          </button>
-          <p class="button-caption">share video</p>
-        </div>
-        <div class="button-item">
-          <button id="challenge-friend" class="button">
-            <img class="icon" src="img/buttons/button_trophy.svg" alt="Start your own challenge">
-          </button>
-          <p class="button-caption">start your own challenge</p>
-        </div>
-      </div>
+        <video preload="auto" webkit-playsinline loop autoplay>
+          <source src="{{result}}" type="video/mp4">
+        </video>
     </section>
   </ion-content>
+  <section class="challenge-wrapper">
+    <div class="challenge-content">
+      <h2 class="challenge-title">de opdracht:</h2>
+      <p class="challenge-current">Armpjedrukken met de sterkste man in de buurt.</p>
+    </div>
+  </section>
+  <section class="buttons-wrapper">
+    <div class="buttons-content">
+      <div class="button-item">
+        <button id="share-video" class="button">
+          <img class="icon" src="img/buttons/button_share.svg" alt="Share video">
+        </button>
+        <p class="button-caption">share video</p>
+      </div>
+      <div class="button-item">
+        <button id="start-challenge" class="button">
+          <img class="icon" src="img/buttons/button_trophy.svg" alt="Start your own challenge">
+        </button>
+        <p class="button-caption">start your own challenge</p>
+      </div>
+    </div>
+  </section>
 </ion-view>

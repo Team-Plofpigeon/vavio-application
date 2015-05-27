@@ -7633,7 +7633,7 @@ h2.challenge-title {
   margin-bottom: 10px; }
 
 p.challenge-current {
-  font-size: 14pt;
+  font-size: 13pt;
   font-weight: 700;
   letter-spacing: 0.35px;
   color: #ffffff; }
@@ -7648,12 +7648,12 @@ p.button-caption {
    ============================= */
 .buttons-wrapper {
   position: absolute;
-  height: 152px;
-  width: calc(100% + 20px);
-  bottom: -10px;
-  background-image: url('../img/bg_buttons.svg');
-  background-size: cover;
-  margin: -10px; }
+  height: 153px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_buttons.svg');
+  background-size: cover; }
   .buttons-wrapper .buttons-content {
     position: relative;
     top: 30px;
@@ -7678,6 +7678,9 @@ p.button-caption {
     .button-item .button .icon {
       vertical-align: middle; }
 
+.disabled {
+  opacity: 0.6; }
+
 /* GLOBAL SETTINGS
    ============================= */
 [nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
@@ -7692,32 +7695,20 @@ p.button-caption {
 .bar-stable .button.button-clear {
   color: #ffffff; }
 
-.scroll {
-  min-height: 100%; }
-
-.warning {
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  background-color: #ef473a;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px; }
-
 /* CHALLENGE SECTIONS
    ============================= */
 .roulette-wrapper {
   position: relative;
-  background-image: url('../img/bg_opdracht.jpg');
-  background-size: cover;
   height: 475px;
-  margin: -10px; }
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_opdracht.jpg');
+  background-size: cover; }
   .roulette-wrapper .roulette-content {
     position: relative;
     top: 50%;
+    padding: 0px 30px;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    padding: 0px 30px;
     text-align: center; }
 
 #re-roll .icon {
@@ -7733,29 +7724,36 @@ p.button-caption {
    ============================= */
 .video-wrapper {
   position: relative;
-  background-image: url('../img/bg_novideo.png');
-  background-size: cover;
   height: 375px;
-  margin: -10px; }
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_novideo.jpg');
+  background-size: cover; }
   .video-wrapper .video-content {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    padding: 0px 100px;
+    padding: 0px 110px;
     text-align: center; }
   .video-wrapper p {
-    font-size: 14pt;
+    font-size: 12pt;
+    letter-spacing: 0.36px;
     color: #b4b4b4; }
+
+video {
+  position: relative;
+  height: 100%;
+  top: 0px;
+  left: 0px; }
 
 .challenge-wrapper {
   position: absolute;
   height: 240px;
-  width: calc(100% + 20px);
-  bottom: -9px;
-  background-image: url('../img/bg_opdracht.svg');
-  background-size: cover;
-  margin: -10px; }
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_opdracht.svg');
+  background-size: cover; }
   .challenge-wrapper .challenge-content {
     position: relative;
     top: 20px;
