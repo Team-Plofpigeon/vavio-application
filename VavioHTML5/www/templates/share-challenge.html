@@ -1,32 +1,32 @@
 <ion-view>
   <ion-content>
-    <!-- No video -->
+    <!-- Video -->
     <section class="video-wrapper">
       <div class="video-content">
-        <p>recorded video will be visible here</p>
+        <!-- Display video -->
       </div>
     </section>
     <!-- Challenge-->
     <section class="challenge-wrapper">
       <div class="challenge-content">
         <h2 class="challenge-title">de opdracht:</h2>
-        <p class="challenge-current">{{currentChallenge}}</p>
+        <p class="challenge-current">Armpjedrukken met de sterkste man in de buurt.</p>
       </div>
     </section>
     <!-- Decision -->
     <section class="buttons-wrapper">
       <div class="buttons-content">
         <div class="button-item">
-          <button id="record-video" class="button" ng-click="startVideo()">
-            <img class="icon" src="img/buttons/button_video.svg" alt="Record video">
+          <button id="record-video" class="button">
+            <img class="icon" src="img/buttons/button_share.svg" alt="Share video">
           </button>
-          <p class="button-caption">record video</p>
+          <p class="button-caption">share video</p>
         </div>
-        <div class="button-item disabled">
+        <div class="button-item">
           <button id="challenge-friend" class="button">
-            <img class="icon" src="img/buttons/button_trophy.svg" alt="Challenge your friends">
+            <img class="icon" src="img/buttons/button_trophy.svg" alt="Start your own challenge">
           </button>
-          <p class="button-caption">challenge your friends</p>
+          <p class="button-caption">start your own challenge</p>
         </div>
       </div>
     </section>

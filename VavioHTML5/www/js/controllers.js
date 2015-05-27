@@ -4,7 +4,6 @@ angular.module('starter.controllers', [])
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 
-
 .controller('StartCtrl', function($scope, $location, Camera, Challenge, $stateParams) {
 	$scope.test = 'Challenge predefined';
 
@@ -88,26 +87,73 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('IndexCtrl', function($scope, $location) {
-	$scope.start = function(param) {
-		switch(param) {
-			case 0:
-			$location.path('/start-pick-random');
-			break;
-			case 1:
-			$location.path('/start-predefined');
-			break;
-			case 2:
-				$location.path('/do-challenge');
-			break;
-		}
+
+.controller('IndexCtrl', function($scope, $location, Random, Challenge) {
+	$scope.result = Random.pickRandom().text;
+	Challenge.setChallengeText($scope.result);
+
+	$scope.start = function() {
+		$location.path('/do-challenge');
+	};
+
+	$scope.reroll = function() {
+		$scope.result = Random.pickRandom().text;
+		Challenge.setChallengeText($scope.result);
 	};
 })
 
-.controller('DoChallengeCtrl', function($scope) {
-	console.log('Do Challenge');
+.controller('DoChallengeCtrl', function($scope, $location, Camera, Challenge) {
+	$scope.currentChallenge = Challenge.getChallengeText();
+
+	$scope.startVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/finished-challenge');
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
 })
 
+.controller('FinishedChallengeCtrl', function($scope, $location, $ionicLoading, Camera, Upload, Challenge, $stateParams) {
+	$scope.currentChallenge = Challenge.getChallengeText();
+
+	var video = Camera.returnVideo()[0].fullPath;
+	var videoName = video.substr(video.lastIndexOf('/') +1);
+	$scope.result = 'file://' + video;
+
+	$scope.newVideo = function() {
+		Camera.start().then(function(imageURI) {
+			$location.path('/finished-challenge');
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
+
+	$scope.shareVideo = function() {
+		var challenged = {
+			videoName: videoName,
+			challengeText: Challenge.getChallengeText()
+		};
+
+		$ionicLoading.show({
+			template: 'Challenge aan het aanmaken...'
+		});
+
+		Challenge.sendChallenge(challenged).then(function(challengeUrl) {
+			$ionicLoading.hide();
+
+			setTimeout(function() {
+				window.location = 'whatsapp://send?text=Ik%20heb%20net%20een%20challenge%20voltooid%20op%20Vavio,%20doe%20mee!%20vavio://' + challengeUrl;
+			}, 0);
+		}, function(err) {
+			$scope.error = err;
+		});
+	};
+})
+
+.controller('ShareChallengeCtrl', function($scope) {
+	console.log('Share Challenge');
+})
 
 .controller('PickRandomCtrl', function($scope, $location, Camera, Random, Challenge) {
 	$scope.result = Random.pickRandom().text;

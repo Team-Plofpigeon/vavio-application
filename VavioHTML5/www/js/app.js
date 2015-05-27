@@ -80,6 +80,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     controller: 'DoChallengeCtrl'
   })
 
+  .state('finished-challenge', {
+    url: '/finished-challenge',
+    templateUrl: 'templates/finished-challenge.html',
+    controller: 'FinishedChallengeCtrl'
+  })
+
+  .state('share-challenge', {
+    url: '/share-challenge',
+    templateUrl: 'templates/share-challenge.html',
+    controller: 'ShareChallengeCtrl'
+  })
+
   .state('start-predefined', {
     url: '/start-predefined',
     templateUrl: 'templates/start-predefined.html',
