@@ -1,7 +1,7 @@
 <ion-view>
   <ion-content>
     <section class="video-wrapper">
-      <video preload="auto" webkit-playsinline loop autoplay>
+      <video id="video" preload="auto" webkit-playsinline loop autoplay>
         <source src="{{result}}" type="video/mp4">
       </video>
     </section>
@@ -15,13 +15,13 @@
   <section class="buttons-wrapper">
     <div class="buttons-content">
       <div class="button-item">
-        <button id="record-video" class="button" ng-click="newVideo()">
+        <button id="record-video" class="button" ng-click="restartVideo()">
           <img class="icon" src="img/buttons/button_video.svg" alt="Record video">
         </button>
         <p class="button-caption">record new video</p>
       </div>
       <div class="button-item">
-        <button id="challenge-friend" class="button" ng-click="shareVideo()">
+        <button id="challenge-friend" class="button" ng-click="uploadVideo()">
           <img class="icon" src="img/buttons/button_trophy.svg" alt="Challenge your friends">
         </button>
         <p class="button-caption">challenge your friends</p>
