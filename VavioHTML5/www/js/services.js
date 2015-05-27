@@ -35,11 +35,9 @@ angular.module('starter.services', [])
 
 .factory('Upload', ['$q', function($q) {
     return {
-<<<<<<< HEAD
         start: function(file) {
             var q = $q.defer();
             var options = new FileUploadOptions();
-
 
             options.fileKey = 'file';
             options.fileName = file.video.substr(file.video.lastIndexOf('/') + 1);
@@ -54,8 +52,8 @@ angular.module('starter.services', [])
                 q.reject(err);
             }, options);
 
-            return q.promise;
-        }
+        return q.promise;
+      }
     };
 }])
 

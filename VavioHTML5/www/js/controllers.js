@@ -87,7 +87,6 @@ angular.module('starter.controllers', [])
 	};
 })
 
-
 .controller('IndexCtrl', function($scope, $location, Random, Challenge) {
 	$scope.result = Random.pickRandom().text;
 	Challenge.setChallengeText($scope.result);

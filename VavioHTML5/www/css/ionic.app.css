@@ -7709,14 +7709,159 @@ p.button-caption {
 .ng-hide-add, .ng-hide-remove {
   display: none !important; }
 
-.warning {
-  height: 40px;
-  line-height: 40px;
+
+h2.roulette-title, h2.challenge-title {
+  font-size: 12pt;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  margin-bottom: 10px; }
+
+p.roulette-current, p.challenge-current {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  color: #ffffff;
+  margin: 0px; }
+
+h2.challenge-title {
+  margin-bottom: 5px; }
+
+p.button-caption {
+  font-size: 14pt;
+  letter-spacing: 0.42px;
+  font-weight: 500;
+  color: #19b47d;
+  margin: 0px; }
+
+/* BUTTONS
+   ============================= */
+.buttons-wrapper {
+  position: absolute;
+  height: 153px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_buttons.svg');
+  background-size: 100% 100%; }
+  .buttons-wrapper .buttons-content {
+    position: relative;
+    top: 30px;
+    padding: 0px 55px; }
+
+.button-item {
+  display: inline-block;
+  width: 110px;
   text-align: center;
-  background-color: #ef473a;
-  color: #fff;
-  font-weight: bold;
-  font-size: 20px; }
+  float: left; }
+  .button-item:last-of-type {
+    float: right; }
+  .button-item .button {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    background: linear-gradient(to bottom, #0fcebf 0%, #32f0aa 100%);
+    background: -webkit-linear-gradient(to bottom, #0fcebf 0%, #32f0aa 100%);
+    margin-bottom: 10px; }
+    .button-item .button .icon {
+      vertical-align: middle; }
+
+.disabled {
+  opacity: 0.6; }
+
+/* GLOBAL SETTINGS
+   ============================= */
+[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
+  background-color: #fa418c; }
+
+.bar.bar-stable .title {
+  background-image: url('../img/vavio_logo.svg');
+  background-size: 90px;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.bar-stable .button.button-clear {
+  color: #ffffff; }
+
+/* CHALLENGE SECTIONS
+   ============================= */
+.roulette-wrapper {
+  position: relative;
+  height: 475px;
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_opdracht.jpg');
+  background-size: cover; }
+  .roulette-wrapper .roulette-content {
+    position: relative;
+    top: 50%;
+    padding: 0px 30px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    text-align: center; }
+
+#re-roll .icon {
+  height: 34px;
+  width: 34px;
+  margin-top: -4px; }
+
+#do-challenge .icon {
+  height: 32px;
+  width: 32px; }
+
+/* VIDEO
+   ============================= */
+.video-wrapper {
+  position: relative;
+  height: 375px;
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_novideo.jpg');
+  background-size: cover; }
+  .video-wrapper .video-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding: 0px 110px;
+    text-align: center; }
+  .video-wrapper p {
+    font-size: 12pt;
+    letter-spacing: 0.36px;
+    color: #b4b4b4; }
+
+video {
+  position: relative;
+  height: 100%;
+  top: 0px;
+  left: 0px; }
+
+.challenge-wrapper {
+  position: absolute;
+  height: 240px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_opdracht.svg');
+  background-size: 100% 100%; }
+  .challenge-wrapper .challenge-content {
+    position: relative;
+    top: 10px;
+    height: 90px;
+    padding: 0px 40px;
+    text-align: center; }
+  .challenge-wrapper .challenge {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); }
+
+#record-video .icon {
+  height: 31px;
+  width: 31px; }
+
+#challenge-friend .icon {
+  height: 33px;
+  width: 33px; }
 
 /* CHALLENGE SECTIONS
    ============================= */
