@@ -88,6 +88,9 @@ angular.module('starter.services', [])
         },
         remove: function(id) {
             challenges.splice(challenges.indexOf(id), 1);
+        },
+        getAll: function() {
+            return challenges;
         }
     };
 }])
