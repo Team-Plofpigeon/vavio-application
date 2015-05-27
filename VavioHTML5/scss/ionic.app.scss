@@ -39,18 +39,28 @@ $color-light-gray:	#ebebeb;
    font-family: 'Avenir' !important;
 }
 
-h2.challenge-title {
+h2.roulette-title {
   font-size: 12pt;
   letter-spacing: 0.3px;
   color: $color-white;
   margin-bottom: 10px;
 }
 
-p.challenge-current {
+p.roulette-current {
   font-size: 13pt;
   font-weight: 700;
   letter-spacing: 0.35px;
   color: $color-white;
+  margin: 0px;
+}
+
+h2.challenge-title {
+  @extend .roulette-title;
+  margin-bottom: 5px;
+}
+
+p.challenge-current {
+  @extend .roulette-current;
 }
 
 p.button-caption {
@@ -58,6 +68,7 @@ p.button-caption {
   letter-spacing: 0.42px;
   font-weight: 500;
   color: $color-dark-green;
+  margin: 0px;
 }
 
 
@@ -70,7 +81,7 @@ p.button-caption {
   bottom: 0px;
   left: 0px;
   background-image: url('../img/backgrounds/bg_buttons.svg');
-  background-size: cover;
+  background-size: 100% 100%;
 
   .buttons-content {
     position:relative;
@@ -166,7 +177,7 @@ p.button-caption {
   .icon {
     height: 34px;
     width: 34px;
-    margin-top: -3px;
+    margin-top: -4px;
   }
 }
 
@@ -217,13 +228,21 @@ video {
   bottom: 0px;
   left: 0px;
   background-image: url('../img/backgrounds/bg_opdracht.svg');
-  background-size: cover;
+  background-size: 100% 100%;
 
   .challenge-content {
     position: relative;
-    top: 20px;
-    padding: 0px 30px;
+    top: 10px;
+    height: 90px;
+    padding: 0px 40px;
     text-align: center;
+  }
+
+  .challenge {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
   }
 }
 

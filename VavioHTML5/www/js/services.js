@@ -66,7 +66,7 @@ angular.module('starter.services', [])
     },
     {
         id: 1,
-        text: 'Ga armpje drukken met iemand.'
+        text: 'Armpjedrukken met de sterkste man in de buurt.'
     },
     {
         id: 2,

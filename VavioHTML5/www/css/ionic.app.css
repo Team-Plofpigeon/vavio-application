@@ -7626,23 +7626,28 @@ a.button {
 * {
   font-family: 'Avenir' !important; }
 
-h2.challenge-title {
+h2.roulette-title, h2.challenge-title {
   font-size: 12pt;
   letter-spacing: 0.3px;
   color: #ffffff;
   margin-bottom: 10px; }
 
-p.challenge-current {
+p.roulette-current, p.challenge-current {
   font-size: 13pt;
   font-weight: 700;
   letter-spacing: 0.35px;
-  color: #ffffff; }
+  color: #ffffff;
+  margin: 0px; }
+
+h2.challenge-title {
+  margin-bottom: 5px; }
 
 p.button-caption {
   font-size: 14pt;
   letter-spacing: 0.42px;
   font-weight: 500;
-  color: #19b47d; }
+  color: #19b47d;
+  margin: 0px; }
 
 /* BUTTONS
    ============================= */
@@ -7653,7 +7658,7 @@ p.button-caption {
   bottom: 0px;
   left: 0px;
   background-image: url('../img/backgrounds/bg_buttons.svg');
-  background-size: cover; }
+  background-size: 100% 100%; }
   .buttons-wrapper .buttons-content {
     position: relative;
     top: 30px;
@@ -7732,7 +7737,7 @@ p.button-caption {
 #re-roll .icon {
   height: 34px;
   width: 34px;
-  margin-top: -3px; }
+  margin-top: -4px; }
 
 #do-challenge .icon {
   height: 32px;
@@ -7771,12 +7776,18 @@ video {
   bottom: 0px;
   left: 0px;
   background-image: url('../img/backgrounds/bg_opdracht.svg');
-  background-size: cover; }
+  background-size: 100% 100%; }
   .challenge-wrapper .challenge-content {
     position: relative;
-    top: 20px;
-    padding: 0px 30px;
+    top: 10px;
+    height: 90px;
+    padding: 0px 40px;
     text-align: center; }
+  .challenge-wrapper .challenge {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); }
 
 #record-video .icon {
   height: 31px;
