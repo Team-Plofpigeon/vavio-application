@@ -35,50 +35,47 @@ angular.module('starter.services', [])
 
 .factory('Upload', ['$q', function($q) {
     return {
-        start: function(file) {
-            var q = $q.defer();
-            var options = new FileUploadOptions();
+      start: function(file) {
+        var q = $q.defer();
+        var options = new FileUploadOptions();
 
+        options.fileKey = 'file';
+        options.fileName = file.substr(file.lastIndexOf('/') + 1);
+        options.mimeType = 'video/mp4';
 
-            options.fileKey = 'file';
-            options.fileName = file.substr(file.lastIndexOf('/') + 1);
-            options.mimeType = 'video/mp4';
+        var transfer = new FileTransfer();
 
-            var transfer = new FileTransfer();
+        transfer.upload(file, encodeURI('http://vavio.borisbesemer.com/upload'), function(success) {
+            q.resolve(success);
+        }, function(err) {
+            q.reject(err);
+        });
 
-
-            transfer.upload(file, encodeURI('http://vavio.borisbesemer.com/upload'), function(success) {
-                q.resolve(success);
-            }, function(err) {
-                q.reject(err);
-            });
-
-            return q.promise;
-        }
+        return q.promise;
+      }
     };
 }])
 
 .factory('Random', ['$q', function($q) {
-
     var challenges = [{
         id: 0,
-        text: 'Hinkel op 1 been een trap op'
+        text: 'Hinkel op 1 been een trap op.'
     },
     {
         id: 1,
-        text: 'Ga armpje drukken met iemand'
+        text: 'Ga armpje drukken met iemand.'
     },
     {
         id: 2,
-        text: 'Doe de weervoorspelling'
+        text: 'Doe de weervoorspelling.'
     },
     {
         id: 3,
-        text: 'Speel op je air guitar'
+        text: 'Speel op je air guitar.'
     },
     {
         id: 4,
-        text: 'Loop met je groep achteruit'
+        text: 'Loop met je groep achteruit.'
     }];
 
     return {
@@ -98,52 +95,52 @@ angular.module('starter.services', [])
     var challengeId;
 
     return {
-        sendChallenge: function(challengeTest) {
-            var q = $q.defer();
+      sendChallenge: function(challengeTest) {
+        var q = $q.defer();
 
-            console.log(challengeTest);
+        console.log(challengeTest);
 
-            $http({
-                url: 'http://vavio.borisbesemer.com/challenge',
-                method: 'POST',
-                data: JSON.stringify(challengeTest),
-                headers: {'Content-Type': 'application/json'}
-            }).success(function(data, status, headers, config) {
-                console.log(data);
-                challengeUrl = '/accept-challenge/' + data.id;
-                q.resolve(challengeUrl);
-            }).error(function(data, status, headers, config) {
+        $http({
+            url: 'http://vavio.borisbesemer.com/challenge',
+            method: 'POST',
+            data: JSON.stringify(challengeTest),
+            headers: {'Content-Type': 'application/json'}
+        }).success(function(data, status, headers, config) {
+            console.log(data);
+            challengeUrl = '/accept-challenge/' + data.id;
+            q.resolve(challengeUrl);
+        }).error(function(data, status, headers, config) {
+            q.reject(data);
+        });
+
+        return q.promise;
+      },
+
+      getChallenge: function() {
+        var q = $q.defer();
+
+        $http.get('http://vavio.borisbesemer.com/challenge/' + challengeId)
+            .success(function(data, status, headers, config) {
+                console.log('challenge get success');
+                q.resolve(data);
+            })
+            .error(function(data, status, headers, config) {
                 q.reject(data);
-            });
+        });
 
-            return q.promise;
-        },
+        return q.promise;
+      },
 
-        getChallenge: function() {
-            var q = $q.defer();
+      setChallengeText: function(text) {
+          challengeText = text;
+      },
 
-            $http.get('http://vavio.borisbesemer.com/challenge/' + challengeId)
-                .success(function(data, status, headers, config) {
-                    console.log('challenge get success');
-                    q.resolve(data);
-                })
-                .error(function(data, status, headers, config) {
-                    q.reject(data);
-            });
+      getChallengeText: function() {
+          return challengeText;
+      },
 
-            return q.promise;
-        },
-
-        setChallengeText: function(text) {
-            challengeText = text;
-        },
-
-        getChallengeText: function() {
-            return challengeText;
-        },
-
-        setChallengeId: function(id) {
-            challengeId = id;
-        }
+      setChallengeId: function(id) {
+          challengeId = id;
+      }
     };
 }]);

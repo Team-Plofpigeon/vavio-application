@@ -66,11 +66,11 @@ p.button-caption {
 .buttons-wrapper {
   position: absolute;
   height: 152px;
-  width: calc(100% + 20px);
-  bottom: -10px;
-  background-image: url('../img/bg_buttons.svg');
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_buttons.svg');
   background-size: cover;
-  margin: -10px;
 
   .buttons-content {
     position:relative;
@@ -105,6 +105,10 @@ p.button-caption {
   }
 }
 
+.disabled {
+  opacity: 0.6;
+}
+
 
 /* GLOBAL SETTINGS
    ============================= */
@@ -130,32 +134,22 @@ p.button-caption {
   min-height: 100%;
 }
 
-.warning {
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background-color: $assertive;
-    color: $light;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 
 /* CHALLENGE SECTIONS
    ============================= */
 .roulette-wrapper {
   position: relative;
-  background-image: url('../img/bg_opdracht.jpg');
-  background-size: cover;
   height: 475px;
-  margin: -10px;
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_opdracht.jpg');
+  background-size: cover;
 
   .roulette-content {
     position: relative;
     top: 50%;
+    padding: 0px 30px;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    padding: 0px 30px;
     text-align: center;
   }
 }
@@ -180,10 +174,10 @@ p.button-caption {
    ============================= */
 .video-wrapper {
   position: relative;
-  background-image: url('../img/bg_novideo.png');
-  background-size: cover;
   height: 375px;
-  margin: -10px;
+  width: 100%;
+  background-image: url('../img/backgrounds/bg_novideo.jpg');
+  background-size: cover;
 
   .video-content {
     position: relative;
@@ -200,14 +194,21 @@ p.button-caption {
   }
 }
 
+video {
+  position: relative;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
 .challenge-wrapper {
   position: absolute;
   height: 240px;
-  width: calc(100% + 20px);
-  bottom: -9px;
-  background-image: url('../img/bg_opdracht.svg');
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('../img/backgrounds/bg_opdracht.svg');
   background-size: cover;
-  margin: -10px;
 
   .challenge-content {
     position: relative;
