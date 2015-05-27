@@ -47,7 +47,7 @@ h2.challenge-title {
 }
 
 p.challenge-current {
-  font-size: 14pt;
+  font-size: 13pt;
   font-weight: 700;
   letter-spacing: 0.35px;
   color: $color-white;
@@ -65,7 +65,7 @@ p.button-caption {
    ============================= */
 .buttons-wrapper {
   position: absolute;
-  height: 152px;
+  height: 153px;
   width: 100%;
   bottom: 0px;
   left: 0px;
@@ -143,7 +143,6 @@ p.button-caption {
   display: none !important;
 }
 
-
 /* CHALLENGE SECTIONS
    ============================= */
 .roulette-wrapper {
@@ -193,12 +192,13 @@ p.button-caption {
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    padding: 0px 100px;
+    padding: 0px 110px;
     text-align: center;
   }
 
   p {
-    font-size: 14pt;
+    font-size: 12pt;
+    letter-spacing: 0.36px;
     color: #b4b4b4;
   }
 }

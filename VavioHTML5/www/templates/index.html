@@ -1,29 +1,27 @@
 <ion-view>
   <ion-content>
-    <!-- Challenge roulette -->
     <section class="roulette-wrapper">
       <div class="roulette-content">
         <h2 class="challenge-title">de opdracht:</h2>
         <p class="challenge-current">{{result}}</p>
       </div>
     </section>
-    <!-- Buttons -->
-    <section class="buttons-wrapper">
-      <div class="buttons-content">
-        <div class="warning" ng-show="error">Error code: {{error.code}}</div>
-        <div class="button-item">
-          <button id="re-roll" class="button" ng-click="reroll()">
-            <img class="icon" src="img/buttons/button_reroll.svg" alt="Re-roll">
-          </button>
-          <p class="button-caption">reroll this challenge</p>
-        </div>
-        <div class="button-item">
-          <button id="do-challenge" class="button" ng-click="start()">
-            <img class="icon" src="img/buttons/button_check.svg" alt="Do challenge">
-          </button>
-          <p class="button-caption">do this challenge</p>
-        </div>
-      </div>
-    </section>
   </ion-content>
+  <section class="buttons-wrapper">
+    <div class="buttons-content">
+      <div class="warning" ng-show="error">Error code: {{error.code}}</div>
+      <div class="button-item">
+        <button id="re-roll" class="button" ng-click="reroll()">
+          <img class="icon" src="img/buttons/button_reroll.svg" alt="Re-roll">
+        </button>
+        <p class="button-caption">reroll this challenge</p>
+      </div>
+      <div class="button-item">
+        <button id="do-challenge" class="button" ng-click="start()">
+          <img class="icon" src="img/buttons/button_check.svg" alt="Do challenge">
+        </button>
+        <p class="button-caption">do this challenge</p>
+      </div>
+    </div>
+  </section>
 </ion-view>
