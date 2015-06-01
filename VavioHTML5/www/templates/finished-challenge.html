@@ -1,0 +1,33 @@
+<ion-view>
+  <ion-content>
+    <section class="video-wrapper">
+      <video id="video" preload="auto" webkit-playsinline loop autoplay>
+        <source src="{{result}}" type="video/mp4">
+      </video>
+    </section>
+  </ion-content>
+  <section class="challenge-wrapper">
+     <div class="challenge-content">
+        <div class="challenge">
+           <h2 class="challenge-title">de opdracht:</h2>
+           <p class="challenge-current">{{currentChallenge}}</p>
+        </div>
+     </div>
+  </section>
+  <section class="buttons-wrapper">
+    <div class="buttons-content">
+      <div class="button-item">
+        <button id="record-video" class="button" ng-click="restartVideo()">
+          <img class="icon" src="img/buttons/button_video.svg" alt="Record video">
+        </button>
+        <p class="button-caption">record new video</p>
+      </div>
+      <div class="button-item">
+        <button id="challenge-friend" class="button" ng-click="uploadVideo()">
+          <img class="icon" src="img/buttons/button_trophy.svg" alt="Challenge your friends">
+        </button>
+        <p class="button-caption">challenge your friends</p>
+      </div>
+    </div>
+  </section>
+</ion-view>

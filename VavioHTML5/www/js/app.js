@@ -24,20 +24,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .controller('MainController', function($scope, $location, Challenge) {
 	$scope.reportCustomURL = function(url) {
+      console.log(url);
 
-        console.log(url);
+      if(url.indexOf('/accept-challenge/') > -1 ) {
+          console.log('accept challenge called');
+          Challenge.setChallengeId(url.substr(url.lastIndexOf('/') +1 ));
+          $location.path(url);
+      } else {
+          console.log('different url called');
+          $location.path('/start-' + url);
+      }
 
-            if(url.indexOf('/accept-challenge/') > -1 ) {
-                console.log('accept challenge called');
-                Challenge.setChallengeId(url.substr(url.lastIndexOf('/') +1 ));
-                $location.path(url);
-            } else {
-                console.log('different url called');
-                $location.path('/start-' + url);
-            }
-
-            $scope.$apply();
-
+      $scope.$apply();
 	};
 })
 
@@ -72,6 +70,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/index',
     templateUrl: 'templates/index.html',
     controller: 'IndexCtrl'
+  })
+
+  .state('do-challenge', {
+    url: '/do-challenge',
+    templateUrl: 'templates/do-challenge.html',
+    controller: 'DoChallengeCtrl'
+  })
+
+  .state('finished-challenge', {
+    url: '/finished-challenge',
+    templateUrl: 'templates/finished-challenge.html',
+    controller: 'FinishedChallengeCtrl'
+  })
+
+  .state('share-challenge', {
+    url: '/share-challenge',
+    templateUrl: 'templates/share-challenge.html',
+    controller: 'ShareChallengeCtrl'
   })
 
   .state('start-predefined', {

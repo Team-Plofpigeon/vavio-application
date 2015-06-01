@@ -21,7 +21,8 @@
     "cordova-plugin-media-capture",
     "org.apache.cordova.file",
     "cordova-plugin-file-transfer",
-    "cordova-plugin-file"
+    "cordova-plugin-file",
+    "org.apache.cordova.statusbar"
   ],
   "cordovaPlatforms": [
     "ios"
