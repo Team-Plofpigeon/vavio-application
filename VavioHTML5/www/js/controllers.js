@@ -195,14 +195,19 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('AcceptCtrl', function($scope, $location, Challenge, Camera) {
-	$scope.currentChallenge = Challenge.getChallengeText();
+.controller('AcceptCtrl', function($scope, $location, $document, Challenge, Camera) {
+
+	var videoElement = $document[0].getElementById('video');
+
+	$scope.$watch('result', function() {
+		videoElement.src = $scope.result;
+	});
 
 	Challenge.getChallenge().then(function(data) {
 		console.log(data);
 		$scope.challenger = data;
-		$scope.video = 'http://vavio.borisbesemer.com/video/' + data.guid + '.MOV';
-		angular.element(document.getElementById('challenge-video')).attr('src', $scope.video);
+		$scope.result = 'http://vavio.borisbesemer.com/video/' + data.guid + '.MOV';
+		$scope.currentChallenge = data.challengeText;
 		Challenge.setChallengeText(data.challengeText);
 	});
 
