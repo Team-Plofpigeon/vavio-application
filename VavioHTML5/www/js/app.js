@@ -24,20 +24,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .controller('MainController', function($scope, $location, Challenge) {
 	$scope.reportCustomURL = function(url) {
+      console.log(url);
 
-        console.log(url);
+      if(url.indexOf('/accept-challenge/') > -1 ) {
+          console.log('accept challenge called');
+          Challenge.setChallengeId(url.substr(url.lastIndexOf('/') +1 ));
+          $location.path(url);
+      } else {
+          console.log('different url called');
+          $location.path('/start-' + url);
+      }
 
-            if(url.indexOf('/accept-challenge/') > -1 ) {
-                console.log('accept challenge called');
-                Challenge.setChallengeId(url.substr(url.lastIndexOf('/') +1 ));
-                $location.path(url);
-            } else {
-                console.log('different url called');
-                $location.path('/start-' + url);
-            }
-
-            $scope.$apply();
-
+      $scope.$apply();
 	};
 })
 

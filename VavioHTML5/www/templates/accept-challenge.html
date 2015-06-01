@@ -1,18 +1,33 @@
-<ion-view view-title="Accepteer Challenge">
-  <ion-content class="padding">
-      <h1>Accepteer</h1>
-      <div class="list">
-          <div class="item item-divider">Challenge door iemand anders gemaakt</div>
-          <a href="" class="item"> <video id="challenge-video" webkit-playsinline="webkit-playsinline" ng-src="{{video}}" autoplay loop></video></a>
+<ion-view>
+   <ion-content>
+      <section class="video-wrapper">
+         <video id="video" preload="auto" webkit-playsinline loop autoplay>
+           <source src="{{result}}" type="video/mp4">
+         </video>
+      </section>
+   </ion-content>
+   <section class="challenge-wrapper">
+      <div class="challenge-content">
+         <div class="challenge">
+            <h2 class="challenge-title">de opdracht:</h2>
+            <p class="challenge-current">{{currentChallenge}}</p>
+         </div>
       </div>
-      <div class="list">
-          <div class="item item-divider">Je challenge</div>
-          <a href="#" class="item">{{ challenger.challengeText }}</a>
+   </section>
+   <section class="buttons-wrapper">
+      <div class="buttons-content">
+         <div class="button-item">
+            <button id="record-video" class="button" ng-click="start()">
+               <img class="icon" src="img/buttons/button_check.svg" alt="Do this challenge">
+            </button>
+            <p class="button-caption">do this challenge</p>
+         </div>
+         <div class="button-item">
+            <button id="challenge-friend" class="button">
+               <img class="icon" src="img/buttons/button_clock.svg" alt="Save challenge for later">
+            </button>
+            <p class="button-caption">save challenge for later</p>
+         </div>
       </div>
-
-      <div class="warning" ng-cloak ng-show="error">Error code: {{error.code}}</div>
-      <button class="button button-full button-positive" ng-click="startVideo()">
-        Film de challenge
-      </button>
-  </ion-content>
+   </section>
 </ion-view>

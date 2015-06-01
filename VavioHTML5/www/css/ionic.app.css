@@ -7662,11 +7662,11 @@ p.button-caption {
   .buttons-wrapper .buttons-content {
     position: relative;
     top: 30px;
-    padding: 0px 55px; }
+    padding: 0px 40px; }
 
 .button-item {
   display: inline-block;
-  width: 110px;
+  width: 140px;
   text-align: center;
   float: left; }
   .button-item:last-of-type {

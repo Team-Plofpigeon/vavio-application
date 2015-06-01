@@ -196,6 +196,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AcceptCtrl', function($scope, $location, Challenge, Camera) {
+	$scope.currentChallenge = Challenge.getChallengeText();
 
 	Challenge.getChallenge().then(function(data) {
 		console.log(data);
@@ -204,6 +205,10 @@ angular.module('starter.controllers', [])
 		angular.element(document.getElementById('challenge-video')).attr('src', $scope.video);
 		Challenge.setChallengeText(data.challengeText);
 	});
+
+	$scope.start = function() {
+		$location.path('/do-challenge');
+	};
 
 	$scope.startVideo = function() {
 		Camera.start().then(function(imageURI) {
