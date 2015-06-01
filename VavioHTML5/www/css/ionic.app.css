@@ -7743,7 +7743,10 @@ p.button-caption {
   background-image: url('../img/backgrounds/bg_novideo.jpg');
   background-size: cover; }
   .video-wrapper video {
-    width: 100%; }
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto; }
   .video-wrapper .video-content {
     position: relative;
     top: 50%;

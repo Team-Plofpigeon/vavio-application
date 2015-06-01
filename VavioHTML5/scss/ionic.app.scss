@@ -199,7 +199,10 @@ p.button-caption {
   background-size: cover;
 
   video {
-    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
   }
 
   .video-content {
